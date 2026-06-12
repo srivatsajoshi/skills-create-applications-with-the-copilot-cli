@@ -123,4 +123,36 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { parseAndCompute, trySingleArgExpression };
+/**
+ * Returns the remainder of a divided by b.
+ * Throws on invalid input or modulo by zero.
+ */
+function modulo(a, b) {
+  const x = Number(a);
+  const y = Number(b);
+  if (Number.isNaN(x) || Number.isNaN(y)) throw new Error('Invalid number input');
+  if (y === 0) throw new Error('Modulo by zero');
+  return x % y;
+}
+
+/**
+ * Returns base raised to the exponent.
+ */
+function power(base, exponent) {
+  const b = Number(base);
+  const e = Number(exponent);
+  if (Number.isNaN(b) || Number.isNaN(e)) throw new Error('Invalid number input');
+  return Math.pow(b, e);
+}
+
+/**
+ * Returns square root of n. Throws on invalid input or negative numbers.
+ */
+function squareRoot(n) {
+  const x = Number(n);
+  if (Number.isNaN(x)) throw new Error('Invalid number input');
+  if (x < 0) throw new Error('Square root of negative number');
+  return Math.sqrt(x);
+}
+
+module.exports = { parseAndCompute, trySingleArgExpression, modulo, power, squareRoot };
